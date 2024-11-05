@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <!-- Page icon and metadata -->
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>واضح - تحليل النحو العربي</title>
+
+    <!-- Stylesheets and Fonts -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Apple+Arabic:wght@400;700&display=swap">
+</head>
+<body>
+    <div class="container">
+        <!-- Welcome Message Section -->
+        <div class="intro">
+            <h1 class="intro-title">
+                هذا واضح.. خبير الإعراب الجديد في خدمتك!
+                <span class="wave">👋</span>
+            </h1>
+            <p class="intro-bio">
+                واضح هو صديقك المفضل في النحو العربي، يساعدك على تحليل الجمل بكل سهولة، يعني لا تشيل هم الإعراب بعد اليوم! 😎
+            </p>
+        </div>
+
+        <!-- Form for Sentence Analysis -->
+        <form id="analysis-form">
+            <textarea name="sentence" id="sentence" dir="rtl" placeholder="أكتب الجملة هنا ويلا نبدأ..." required></textarea>
+        </form>
+
+        <!-- Toolbar with Functional Buttons -->
+        <div class="toolbar">
+            <!-- Voice Button -->
+            <button id="start-microphone" class="tooltip">
+                ودك تسمعني صوتك الزين؟ <i class="fas fa-microphone"></i>
+                <span class="tooltiptext">قول الجمله الي في خاظرك و ازهلني</span>
+            </button>
+
+            <!-- Random Sentence Button -->
+            <button id="load-random-sentence" class="tooltip">
+                خذ جملة تسرح فيها <i class="fas fa-random"></i>
+                <span class="tooltiptext">جرب حظك مع الجملة العشوائية!</span>
+            </button>
+
+            <!-- Start Analysis Button -->
+            <button type="submit" form="analysis-form">
+                يلا نبدأ <i class="fas fa-search"></i>
+            </button>
+
+            <!-- History Button -->
+            <button id="history-btn" class="tooltip">
+                عرض التاريخ <i class="fas fa-history"></i>
+                <span class="tooltiptext">شاهد التحليلات السابقة</span>
+            </button>
+
+            <!-- Help Button -->
+            <button id="help-btn" class="tooltip">
+                مساعدة <i class="fas fa-question-circle"></i>
+                <span class="tooltiptext">احصل على المساعدة هنا</span>
+            </button>
+        </div>
+
+        <!-- Spinner for Loading State -->
+        <div id="loading-spinner" style="display: none;">
+            <i class="fas fa-spinner fa-spin"></i>
+        </div>
+
+        <!-- Result Display for Analysis Output -->
+        <div id="result" dir="rtl"></div>
+
+        <!-- History Section to Show Previous Analyses -->
+        <div id="history-container" style="display: none;">
+            <h2>التاريخ</h2>
+            <ul id="history-list"></ul>
+        </div>
+
+        <!-- Help Section for FAQs and Video Tutorials -->
+        <div id="help-container" style="display: none;">
+            <h2>المساعدة</h2>
+            <div id="faqs">
+                <h3>الأسئلة الشائعة</h3>
+                <ul id="faqs-list">
+                    <!-- Each FAQ Question and Answer -->
+                    <li><strong>كيف أبدأ التحليل؟</strong> - يمكنك كتابة الجملة في المربع والنقر على زر "يلا نبدأ" لبدء التحليل.</li>
+                    <li><strong>كيف أرى التحليلات السابقة؟</strong> - انتقل إلى قسم "التاريخ" لمشاهدة قائمة الجمل التي تم تحليلها سابقًا.</li>
+                    <li><strong>لماذا لا يُعرَب النظام بعض الجمل؟</strong> - قد تكون الجملة غير مكتملة، أو تحتوي على رموز غير مفهومة، حاول كتابة جملة كاملة ومفهومة باللغة العربية.</li>
+                    <li><strong>كيف يمكنني استخدام ميزة التعرف على الصوت؟</strong> - اضغط على زر "ودك تسمعني صوتك الزين؟" وابدأ بالتحدث لإدخال الجملة صوتيًا.</li>
+                    <li><strong>هل يمكنني تعديل الجمل التي تم تحليلها سابقًا؟</strong> - لا يمكن التعديل مباشرةً، ولكن يمكنك إعادة كتابة الجملة وتحليلها مرة أخرى.</li>
+                    <li><strong>كيف أبدأ الاختبار النحوي؟</strong> - يمكنك النقر على زر "ابدأ الاختبار" لبدء اختبار النحو، والإجابة على الأسئلة المتتالية لتحسين مهاراتك.</li>
+                    <li><strong>ما هي الفائدة من الجمل العشوائية؟</strong> - الجمل العشوائية توفر لك فرصة لتجربة التحليل على جمل جديدة، مما يساعدك على التعرف على أنواع مختلفة من الإعراب.</li>
+                    <li><strong>كيف أتحقق من صحة إعرابي لجملة معينة؟</strong> - قد يُخطئ "واضح" أحيانًا، لذا يُفضل مراجعة النتائج بنفسك.</li>
+                    <li><strong>هل يتم حفظ التحليلات في كل مرة أقوم بتحليل جملة؟</strong> - نعم، يتم حفظ التحليلات في قسم "التاريخ"، ويمكنك العودة إليها في أي وقت لمراجعتها.</li>
+                    <li><strong>هل يمكن استخدام "واضح" بدون اتصال بالإنترنت؟</strong> - للأسف، "واضح" يحتاج إلى اتصال بالإنترنت للعمل لأنه يستخدم تقنيات سحابية لتحليل النحو.</li>
+                </ul>
+            </div>
+            <div id="video-tutorials">
+                <h3>الفيديوهات التعليمية</h3>
+                <ul id="videos-list">
+                    <!-- Video Tutorials -->
+                    <li><a href="https://www.youtube.com/watch?v=vEtax8KR2V0" target="_blank">كورس تأسيس نحو من البداية - النحو كامل في عشرة أيام</a></li>
+                    <li><a href="https://www.youtube.com/watch?v=9hwUO52lFS4" target="_blank">أقسام الكلمة - دورة تعلم النحو العربي للمبتدئين</a></li>
+                    <li><a href="https://www.youtube.com/watch?v=jwQmJBATLRE" target="_blank">دورة تعلم النحو العربي | قواعد النحو للمبتدئين</a></li>
+                    <li><a href="https://www.youtube.com/playlist?list=PLXjlRmlEPGsTTBFCVvYqQsC-haAVKEdF6" target="_blank">دورة تعليم النحو للمبتدئين من الصفر إلى الإتقان</a></li>
+                    <li><a href="https://www.youtube.com/playlist?list=PLKPERcBDvt5vxuz_3MBPNdaAoTR_yNQgH" target="_blank">النحو العربي للمبتدئين</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Quiz Section for Interactive Grammar Quiz -->
+        <div class="quiz-section quiz-box">
+            <h2>اختبار النحو العربي 📝</h2>
+            <button id="start-quiz" class="tooltip">
+                ابدأ الاختبار <i class="fas fa-gamepad"></i>
+                <span class="tooltiptext">ابدأ اختبار النحو العربي</span>
+            </button>
+            <button id="close-quiz" class="tooltip" style="display: none;">
+                إغلاق الاختبار <i class="fas fa-times"></i>
+                <span class="tooltiptext">إغلاق الاختبار الحالي</span>
+            </button>
+
+            <!-- Quiz Progress Bar -->
+            <div id="quiz-progress-bar" style="display: none;">
+                <div class="progress" style="width: 0;"></div>
+            </div>
+
+            <!-- Quiz Content Display -->
+            <div id="quiz-container" style="display: none;">
+                <p id="quiz-instruction"></p>
+                <p id="quiz-question"></p>
+                <ul id="quiz-options"></ul>
+                <div id="quiz-feedback"></div>
+
+                <!-- Next Question Button -->
+                <button id="next-question" style="display: none;">
+                    السؤال التالي <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Disclaimer Note -->
+        <p class="disclaimer">قد يُخطئ "واضح" أحيانًا. يُفضل التحقق من النتائج عند استخدامها لأغراض مهمة.</p>
+    </div>
+
+    <!-- External Script File -->
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+</html>

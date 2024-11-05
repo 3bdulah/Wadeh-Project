@@ -1,0 +1,6 @@
+# Install required packages with:
+# pip install -r requirements.txt
+
+Flask>=2.0.1  # Flask for the web application
+requests>=2.26.0  # Requests library for handling HTTP requests
+python-dotenv>=0.20.0  # For managing environment variables with .env files

@@ -1,0 +1,339 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css');
+
+/* Custom Font Import */
+@font-face {
+    font-family: 'SF Arabic';
+    src: url('/static/css/SF-Arabic.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* General Body Styling */
+body {
+    font-family: 'SF Arabic', sans-serif;
+    background: linear-gradient(to top, #09203f 0%, #537895 100%);
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Background Overlay */
+body::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: -1;
+}
+
+/* Container Styling */
+.container {
+    padding: 2%;
+    width: 80%;
+    max-height: 90vh;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    overflow-y: auto;
+    direction: rtl;
+    text-align: center;
+}
+
+/* Welcome Message Styling */
+.intro-title {
+    color: #a6c0d4;
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.intro-bio {
+    color: #f7fcff;
+    font-size: 1em;
+}
+
+h1, h2, h3 {
+    color: #a6c0d4;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+p {
+    color: #ffffff;
+}
+
+/* Input Form Styling */
+textarea {
+    width: 75%;
+    height: 15vh;
+    font-size: 1em;
+    margin: 1% auto;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    direction: rtl;
+    transition: border 0.3s, box-shadow 0.2s;
+}
+
+textarea:focus {
+    border: 2px solid #ffffff;
+    outline: none;
+    box-shadow: 0px 0px 5px rgba(255, 255, 255, 0.5);
+}
+
+/* Button Styling */
+button {
+    background-color: #a6c0d4;
+    color: #ffffff;
+    padding: 1.5% 3%;
+    border: none;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s, box-shadow 0.2s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin: 5px;
+}
+
+button i {
+    margin-right: 8px;
+}
+
+button:hover {
+    background-color: #80b5c4;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+button:active {
+    background-color: #051b30;
+    transform: scale(0.98);
+}
+
+/* Result Display Styling */
+#result {
+    display: none;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 8px;
+    color: #ffffff;
+    font-weight: bold;
+    transition: background-color 0.5s;
+}
+
+#result.success {
+    background-color: #27ae60;
+}
+
+#result.error {
+    background-color: #e74c3c;
+}
+
+/* Toolbar Styling */
+.toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.toolbar button {
+    flex: 1;
+}
+
+/* Tooltip Styling */
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: #0b2a47;
+    color: #ffffff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* FAQ and Help Section Styling */
+#faqs h3, #video-tutorials h3 {
+    color: #a6c0d4;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+#faqs-list, #videos-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+#faqs-list {
+    line-height: 1.6; /* Increases line spacing for readability */
+}
+
+#faqs-list li {
+    margin-bottom: 10px; /* Adds space between FAQ items */
+}
+
+#faqs-list li strong {
+    font-weight: bold;
+    color: #f7fcff; /* Distinguishes the question text */
+}
+
+#video-tutorials {
+    margin-top: 20px; /* Adds more space above video tutorials */
+}
+
+#video-tutorials li {
+    margin-bottom: 8px; /* Adds space between video links */
+}
+
+#history-container, #help-container {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 20px;
+    display: none;
+}
+
+#history-container h2, #help-container h2 {
+    color: #f7fcff;
+    margin-bottom: 10px;
+}
+
+/* History List Styling */
+#history-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+#history-list li {
+    background: rgba(166, 192, 212, 0.3);
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    color: #ffffff;
+    text-align: right;
+}
+
+/* Progress Bar Styling */
+.progress-bar {
+    width: 0;
+    height: 5px;
+    background-color: #80b5c4;
+    transition: width 0.3s;
+}
+
+/* Spinner Styling */
+.spinner {
+    display: none;
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    border-top: 4px solid #ffffff;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Quiz Section Styling */
+.quiz-box {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.correct-answer {
+    animation: correctGlow 0.8s forwards;
+}
+
+@keyframes correctGlow {
+    0% { background-color: #27ae60; }
+    50% { background-color: #2ecc71; }
+    100% { background-color: #27ae60; }
+}
+
+.wrong-answer {
+    animation: shake 0.5s forwards;
+}
+
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-10px); }
+    50% { transform: translateX(10px); }
+    75% { transform: translateX(-10px); }
+    100% { transform: translateX(0); }
+}
+
+/* Additional Sections */
+.voice-section, .quiz-section {
+    margin: 2% 0;
+    padding: 2%;
+}
+
+.quiz-section.hidden {
+    display: none;
+}
+
+.disclaimer {
+    color: #f7fcff;
+    font-size: 0.8em;
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+/* Waving Hand Animation */
+.wave {
+    display: inline-block;
+    font-size: 1.5em;
+    animation: wave-animation 2s ease-in-out infinite;
+    transform-origin: 70% 70%; /* Adjust origin for realistic waving effect */
+}
+
+/* Keyframes for Wave Animation */
+@keyframes wave-animation {
+    0% { transform: rotate(0deg); }
+    10% { transform: rotate(14deg); }
+    20% { transform: rotate(-8deg); }
+    30% { transform: rotate(14deg); }
+    40% { transform: rotate(-4deg); }
+    50% { transform: rotate(10deg); }
+    60% { transform: rotate(0deg); }
+    100% { transform: rotate(0deg); }
+}
