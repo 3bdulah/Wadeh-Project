@@ -61,16 +61,17 @@ wadeh/
 │   └── index.html         # HTML template
 ├── static/
 │   ├── css/
-│   │   └── styles.css     # CSS file for styling
-│   │   └── SF.Arabic.ttf  # Font
+│   │   ├── styles.css     # CSS file for styling
+│   │   └── SF-Arabic.ttf  # Font
 │   ├── js/
 │   │   └── script.js      # JavaScript file for functionality
 │   ├── sounds/            # Sound effects for correct/incorrect answers
-│   │   ├── correct.mp3    # Correct answer sound effect
-│   │   └── wrong.mp3      # Incorrect answer sound effect
+│   │   ├── correct.mp3
+│   │   └── wrong.mp3
 │   └── favicon.ico        # Favicon for the application
+├── presentations/         # Project presentations
+│   └── "Wadeh".pptx       # PowerPoint presentation for the project
 ├── requirements.txt       # Python dependencies
-├── LICENSE.txt            # License file
 └── README.md              # Project documentation
 ```
 
