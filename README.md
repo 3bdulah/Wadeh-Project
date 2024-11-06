@@ -1,4 +1,4 @@
-# واضح (Wadeh) - Arabic Grammar Analysis Tool
+   # واضح (Wadeh) - Arabic Grammar Analysis Tool 
 
 **Wadeh** is an AI-driven web application that automates Arabic grammar analysis using the ALLaM model, hosted on IBM Watsonx. The tool assists Arabic language learners, educators, and enthusiasts by providing accurate and accessible grammatical analysis in Arabic.
 
