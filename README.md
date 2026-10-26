@@ -1,6 +1,6 @@
    # واضح (Wadeh) - Arabic Grammar Analysis Tool 
 
-**Wadeh** is an AI-driven web application that automates Arabic grammar analysis using the ALLaM model, hosted on IBM Watsonx. The tool assists Arabic language learners, educators, and enthusiasts by providing accurate and accessible grammatical analysis in Arabic.
+**Wadeh** is an AI-driven web application that automates Arabic grammar analysis using the ALLaM model, hosted on IBM Watsonx. The tool is designed to help Arabic language learners, educators, and enthusiasts explore grammatical analysis in Arabic. Generated analyses should be reviewed by a knowledgeable reader.
 
 ## Project Overview
 Wadeh was developed as part of the **Allam Challenge 2024** hackathon, chosen from over 200 ideas for its unique contribution to Arabic language education. Using advanced prompt engineering with IBM Watsonx, Wadeh can analyze complex grammatical structures and assist users in understanding Arabic syntax.
