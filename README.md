@@ -16,8 +16,8 @@ To set up Wadeh locally, follow these steps:
 
 1. Clone this repository:
    ```bash
-   git clone https://github.com/yourusername/wadeh.git
-   cd wadeh
+   git clone https://github.com/3bdulah/Wadeh-Project.git
+   cd Wadeh-Project
    ```
 
 2. Create a virtual environment and activate it:
