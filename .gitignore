@@ -4,3 +4,12 @@ __pycache__/
 *.pyo
 instance/
 .DS_Store
+.env
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+instance/
+.idea/
+.vscode/
+.DS_Store
