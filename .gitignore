@@ -1,15 +1,14 @@
+# Environment variables and secrets
 .env
-__pycache__/
-*.pyc
-*.pyo
-instance/
-.DS_Store
-.env
+
+# Python
 .venv/
 venv/
 __pycache__/
 *.py[cod]
 instance/
+
+# IDE and OS
 .idea/
 .vscode/
 .DS_Store
